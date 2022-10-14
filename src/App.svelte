@@ -13,22 +13,12 @@
 		document.querySelector('html').setAttribute('data-theme', $theme)
 		await testConnection()
 
-		const options = {
-		method: 'POST',
-		url: 'https://nlp-translation.p.rapidapi.com/v1/translate',
-		headers: {
-			'content-type': 'application/x-www-form-urlencoded',
-			'x-rapidapi-host': 'nlp-translation.p.rapidapi.com',
-			'x-rapidapi-key': '266cb6e220msh434e9e63c860ea3p1ca770jsncb014f0fd464'
-		},
-		data: {text: 'Hello World', to: 'es', from: 'en'}
-		};
 
-		axios.request(options).then(function (response) {
-			console.log(response.data);
-		}).catch(function (error) {
-			console.error(error);
-		});
+		// axios.request(options).then(function (response) {
+		// 	console.log(response.data);
+		// }).catch(function (error) {
+		// 	console.error(error);
+		// });
 		// navigator.permissions.query({name: 'camera'})
 		// 	.then((permissionObj) => {
 		// 		$SUPPORT_CAMERA = permissionObj.state === "granted"

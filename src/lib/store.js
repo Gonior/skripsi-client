@@ -16,6 +16,6 @@ const themes = localStorage.theme ? localStorage.theme : "light"
 export const theme = writable(themes || "light")
 theme.subscribe(value => localStorage.theme = value)
 
-export const BASE_URL = "https://192.168.100.10:8000" //replace with domain
+export const BASE_URL = "https://kassatl.glitch.me" //replace with domain
 
 export const SUPPORT_CAMERA = writable({support :false, permission : false})

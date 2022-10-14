@@ -8,6 +8,7 @@
     import {SyncLoader} from 'svelte-loading-spinners'
     export let show = false
     export let data
+    let text 
 
     let isLoading = true,
         state = "",
@@ -73,6 +74,7 @@
         })
         if (req) {
             console.log(req)
+            text = req
         }
         isLoading = false
     }
@@ -96,7 +98,9 @@
                 <button class="btn btn-ghost btn-sm " on:click={() => handleClose()}>Tutup</button>
             </div>
         {:else}
+
         <h1>result will appear here</h1>
+        {JSON.stringify(text)}
         {/if}
     </div>
 </div>
