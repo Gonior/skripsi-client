@@ -5,8 +5,8 @@
     "scope": "/",
     "start_url": "/",
     "orientation": "portrait",
-    "name": "Aplikasi Penerjemah Jepang - Indo",
-    "short_name": "JXI Translator",
+    "name": "JXI Penerjemah",
+    "short_name": "JXI",
     "description": "Aplikasi ini untuk menerjemahkan bahasa Jepang - Indonesia memanfaatkan teknologi kamera",
     "icons": [
         {

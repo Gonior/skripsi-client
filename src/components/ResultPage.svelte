@@ -91,12 +91,12 @@
             <progress class="progress progress-primary w-56" value="{$progress}" max="100"></progress>
             <span class="text-base-content text-opacity-80 capitalize">{Math.round($progress)}%</span>
         {:else if err.isError}
-            <div class="flex flex-col items-center space-y-4">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-24 w-24 text-error text-opacity-80" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 16a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm1-5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0Z"/></svg>
-                <h1 class="font-bold text-xl text-base-content">Gagal Menerjemahkan</h1>
-                <span class="text-base-content text-center max-w-xs text-opacity-80 capitalize">{err.message}</span>
-                <button class="btn btn-ghost btn-sm " on:click={() => handleClose()}>Tutup</button>
-            </div>
+        
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-24 w-24 text-error text-opacity-80" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 16a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm1-5a1 1 0 0 1-2 0V7a1 1 0 0 1 2 0Z"/></svg>
+            <h1 class="font-bold text-xl text-base-content">Gagal Menerjemahkan</h1>
+            <span class="text-base-content text-center max-w-xs text-opacity-80 capitalize">{err.message}</span>
+            <button class="btn btn-ghost btn-sm " on:click={() => handleClose()}>Tutup</button>
+            
         {:else}
 
         <h1>result will appear here</h1>

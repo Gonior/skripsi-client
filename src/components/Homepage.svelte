@@ -197,10 +197,10 @@
                 <ol class="list-decimal">
                     <li>Di Ponsel, buka aplikasi setelan (Setting Apps)</li>
                     <li>Ketuk <strong>Aplikasi</strong></li>
-                    <li>Cari dan pilih <strong>JXI Translator</strong>(Jika tidak menemukannya, pilih <strong>Lihat semua aplikasi.</strong>)</li>
+                    <li>Cari dan pilih <strong>JXI Penerjemah</strong>(Jika tidak menemukannya, pilih <strong>Lihat semua aplikasi.</strong>)</li>
                     <li>Ketuk <strong>Izin</strong></li>
                     <li>Pilih <strong>Kamera</strong> > <strong>Izinkan saat aplikasi digunakan</strong> </li>
-                    <li>Buka Aplikasi <strong>JIX Translator</strong></li>
+                    <li>Buka Aplikasi <strong>JIX Penerjemah</strong></li>
                     <li>Selesai.</li>
                 </ol>
             </div>
