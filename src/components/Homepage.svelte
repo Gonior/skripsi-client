@@ -137,7 +137,7 @@
 
     const startVideo = async (first) => {
 		
-        if (first) {
+        if ($SUPPORT_CAMERA.support) {
             let constraints = {
 				video : {
 					// width: {

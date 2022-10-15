@@ -28,9 +28,7 @@
 		// 		console.log('Got error :', error);
 		// 	})
 		// 	
-		const permissionObj = await navigator.permissions.query({name : "camera"})
-		console.log(permissionObj)
-		alert(permissionObj.state)
+		
 		//validate getusermedia if it is not supported
 		if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){
 			
