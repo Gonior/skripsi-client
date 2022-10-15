@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
+    "dev": "HOST=0.0.0.0 yuarnrollup -c -w",
+    "start": "sirv public --host --http2 --key privateKey.key --cert cert.crt"
   },
   "devDependencies": {
     "@novacbn/svelte-image-crop": "github:novacbn/svelte-image-crop#0.0.2",

@@ -13,7 +13,7 @@
 		document.querySelector('html').setAttribute('data-theme', $theme)
 		await testConnection()
 
-
+		
 		// axios.request(options).then(function (response) {
 		// 	console.log(response.data);
 		// }).catch(function (error) {
@@ -28,16 +28,20 @@
 		// 		console.log('Got error :', error);
 		// 	})
 		// 	
+		const permissionObj = await navigator.permissions.query({name : "camera"})
+		console.log(permissionObj)
+		alert(permissionObj.state)
 		//validate getusermedia if it is not supported
-		const status = await navigator.permissions.query({name: "camera"});
-		$SUPPORT_CAMERA.permission =  status.state === 'granted'
 		if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices){
+			
 			let media = await navigator.mediaDevices.enumerateDevices()
 			let detect = media.find(m => m.kind === 'videoinput')
 			if (detect === undefined) $SUPPORT_CAMERA.support = false
-			else $SUPPORT_CAMERA.support = true
+			else {
+				$SUPPORT_CAMERA.support = true
+			}
 		}
-
+		
 		isLoading = false
 	})
 
@@ -45,7 +49,7 @@
 		state = "Test koneksi ke server"
 		isLoading = true
 		try {
-			let data = await axios({
+			await axios({
 				method : "GET",
 				url : BASE_URL				
 			})

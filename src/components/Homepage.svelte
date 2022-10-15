@@ -42,12 +42,12 @@
 
     onMount(async () => {
         initCanvas(true)
-		if ($SUPPORT_CAMERA.permission && $SUPPORT_CAMERA.support) {
+		if ($SUPPORT_CAMERA.support) {
 			await startVideo(true)
             error.show = false
         } else {
             if ($SUPPORT_CAMERA.support !== true) handleError("Perangkat anda tidak mendukung kamera.", "support")
-            else  handleError('Akses kamera ditolak', "permission")
+            else handleError('Akses kamera ditolak', "permission")
         }
 		
   	});
@@ -137,7 +137,7 @@
 
     const startVideo = async (first) => {
 		
-        if ($SUPPORT_CAMERA.permission) {
+        if (first) {
             let constraints = {
 				video : {
 					// width: {
@@ -188,7 +188,7 @@
 		stopVideo()
 	}
 
-    const handleShowModal = (type) => {
+    const handleShowModal = async (type) => {
         modal.show = true
         if (type === "grantAccess") {
             modal.title = "Beri Akses Kamera"
@@ -206,6 +206,7 @@
             </div>
             `
         } else {
+            
             modal.title = "Ambil Gambar"
             modal.content = `
                 <div class="h-1/2 flex flex-col items-center justify-center p-4">
@@ -233,7 +234,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               <span>Ukuran gambar harus kurang dari 1MB.</span>
             </div>
-          </div>
+        </div>
     </div>
     {/if}
     {#if result.show}
@@ -297,7 +298,7 @@
     <button on:click="{() => handleShowModal("example")}" in:fly={{y:200 ,duration : 300}}  class="btn btn-ghost btn-sm btn-square text-base-content">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6"><path style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2" d="M12.05 8h-.1M3 12a9 9 0 0 1 9-9h0a9 9 0 0 1 9 9h0a9 9 0 0 1-9 9h0a9 9 0 0 1-9-9Zm9 1v3"/></svg>
     </button>
-    <button disabled={!$SUPPORT_CAMERA.permission} in:fly={{y:200 ,duration : 300}} class="btn btn-circle shadow btn-primary btn-lg" on:click="{() => takeaPicture()}">
+    <button disabled={!$SUPPORT_CAMERA.support} in:fly={{y:200 ,duration : 300}} class="btn btn-circle shadow btn-primary btn-lg" on:click="{() => takeaPicture()}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-10 w-10"><path d="M21 7v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h4l.72-1.45a1 1 0 0 1 .9-.55h4.76a1 1 0 0 1 .9.55L16 6h4a1 1 0 0 1 1 1Zm-9 3a3 3 0 1 0 3 3 3 3 0 0 0-3-3Z" style="fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2"/></svg>
     </button>
     <button on:click="{fileinput.click()}" in:fly={{y:200 ,duration : 300}} class="btn btn-ghost btn-sm btn-square text-base-content">
